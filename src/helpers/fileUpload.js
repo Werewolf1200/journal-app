@@ -1,5 +1,6 @@
 export const fileUpload = async (file) => {
-    if (!file) throw new Error('No tenemos ningun archivo a subir');
+    //if (!file) throw new Error('No tenemos ningun archivo a subir');
+    if (!file) return null;
 
     const cloudUrl = 'https://api.cloudinary.com/v1_1/react-learning/upload';
 
@@ -14,7 +15,6 @@ export const fileUpload = async (file) => {
             body: formData
         });
 
-        console.log(resp)
         if (!resp.ok) throw new Error('No se pudo subir la imagen');
 
         const cloudResp = await resp.json();
@@ -22,6 +22,8 @@ export const fileUpload = async (file) => {
         return cloudResp.secure_url;
 
     } catch (error) {
-        throw new Error(error.message);
+        // throw new Error(error.message);
+
+        return null;
     }
 }
