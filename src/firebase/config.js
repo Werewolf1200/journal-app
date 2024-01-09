@@ -1,17 +1,41 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore/lite';
+import { getEnvironments } from "../helpers/getEnvironments";
 
+const {
+  VITE_APIKEY,
+  VITE_AUTHDOMAIN,
+  VITE_PROJECTID,
+  VITE_STORAGEBUCKET,
+  VITE_MESSAGINGSENDERID,
+  VITE_APPID,
+  VITE_MEASUREMENTID,
+} = getEnvironments();
+/*
+const firebaseConfig = {
+  apiKey: ,
+  authDomain: ,
+  projectId: ,
+  storageBucket: ,
+  messagingSenderId: ,
+  appId: ,
+  measurementId: 
+};
+*/
+
+//Testing
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDl76D8rcMXHgs87mgN181jrxTVNeb57L8",
-  authDomain: "journal-app-cb1f3.firebaseapp.com",
-  projectId: "journal-app-cb1f3",
-  storageBucket: "journal-app-cb1f3.appspot.com",
-  messagingSenderId: "94280384476",
-  appId: "1:94280384476:web:7a58005ba3f0d4b06d5919",
-  measurementId: "G-F9JE49N4EP"
+  apiKey: VITE_APIKEY,
+  authDomain: VITE_AUTHDOMAIN,
+  projectId: VITE_PROJECTID,
+  storageBucket: VITE_STORAGEBUCKET,
+  messagingSenderId: VITE_MESSAGINGSENDERID,
+  appId: VITE_APPID,
+  measurementId: VITE_MEASUREMENTID,
 };
+
 
 // Initialize Firebase
 export const FirebaseApp = initializeApp(firebaseConfig);
