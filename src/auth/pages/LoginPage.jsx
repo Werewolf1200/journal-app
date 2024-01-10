@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom';
 import { Alert, Button, Grid, Link, Typography, TextField } from '@mui/material';
-import { Google } from '@mui/icons-material';
+import Google from '@mui/icons-material/Google';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks/useForm';
 import { startGoogleSignIn, startLoginWithData } from '../../store/auth/thunks';
@@ -86,6 +86,7 @@ export const LoginPage = () => {
               <Button
                 disabled={isAuthenticating} 
                 variant='contained'
+                aria-label='google-btn'
                 fullWidth
                 onClick={onGoogleSignIn}>
                   <Google />
